@@ -92,7 +92,7 @@ void explainvectors(){
         cout<<*(ww)<<"\n";
     }
         for(auto  ww=v.begin(); ww!=v.end();ww++){
-            cout<<*(ww)<<"/n";
+            cout<<*(ww)<<"\n";
         }
     for(auto ww:v){
         cout<<ww<<"\n";
@@ -168,7 +168,25 @@ q1.push(2);
 q2.push(3);
 q2.push(4);
 
+
 q1.swap(q2);
+//queue implementation
+ queue<int>q;
+    int x,n;
+    cout<<"Enter no of elements to push: ";
+    cin>>x;
+    for(int i=0;i<x;i++){
+        cout<<"enter elements: "<<"\n";
+        cin>>n;
+        q.push(n);
+        
+    }
+    queue<int>temp=q;
+    while(!temp.empty()){
+        cout<<temp.front();
+        temp.pop();
+        cout<<"\n";
+    }
 
 /*
 Feature / Container	Stack (std::stack)	Queue (std::queue)	Deque (std::deque)
@@ -185,6 +203,153 @@ Typical use case	Undo functionality, expression evaluation	Task scheduling, orde
 */
 } 
 
+
+
+void preority{
+    priority_queue<int> pq;
+    pq.push(5);
+    pq.push(2);
+    pq.push(8);
+    pq.emblace(10);
+    while(!pq.empty()){
+ //first it will store 5, next 2,8,10,
+    //it will print the greater one among all like tree it is not linear data structure
+  pq.top();//10
+  pq.pop();//now 8 is the highest element because top 10 is removed so it print descending order
+  //when we insert 3 it will go into store after 2,-->10,8,5,2,3
+    }
+    //first it will store 5, next 2,8,10,
+    //it will print the greater one among all like tree it is not linear data structure
+  pq.top();//10
+  pq.pop();//now 8 is the highest element because top 10 is removed so it print descending order
+  //when we insert 3 it will go into store after 2,-->5,2,3,8,
+}
+  pq.push(3);
+  //it will store 3 above mentioned
+ cout<<pq.pop();//it will print 8
+ // this another name is maximum heap
+
+
+ //now minimum heap minimum element at the top
+ priority_queue<int, vector<int>,greater<int>> pq;
+  pq.push(2);//2
+   pq.push(5);//2,5
+   pq.push(8);//2,5,8
+   pq.emblace(10);//2,5,8,10
+   cout<<pq.top();//minimum element is 2
+   //push()-->log(n);
+   //top()-->0(1);
+   //pop()-->log(n);
+
+}
+
+
+void explainset{
+    set<int>ss;
+   ss.insert(1);
+   ss.emplace(2);
+   ss.insert(2);
+   ss.insert(4);
+   ss.inert(3);
+   //set is ordered and unique
+   //imagine{1,2,3,4,5}
+   auto it =ss.find(3);
+   auto it=ss.find(6);
+   ss.erase(it1,it2);
+
+   //log(n)
+
+   void multiset{
+    // stored sorted but not unique 
+    multiset<int>s;
+    s.insert(1);
+    s.insert(1);
+    s.insert(1);
+    in cc=s.count(1);
+     s.erase(1);//-->it deletes all the ones 
+     s.erase(s.find(1));//->> it deleted the iterator address now one one can be deleted 
+     s.erase(s.find(1),s.find(1)+2);//--> two ones deleted at last in multiset{1}
+     
+     //unorederedset
+     ///everything is unique but it is unshorted we dont konw how it is stored
+     //unoredered_set<int>ss;
+     //timecomplexity 0(1); // in worst case the time complexoty is 0(n); it happens once in the blue moon  
+     //all the operations are the smae only the lower bound and upper bound operations are not work
+   }
+
+
+void explainmap{
+
+//mmp.emplace({4,1}) ;  .insert is also possible
+    map<int,int>m;
+    m[1]=2;
+    map<int,pair<int,int>>mp;
+    mp[2]={1,3};
+        map<pair<int,int>,int>mpp;
+
+        mpp[{1,2}]=10;
+        mpp[{2,3}]=11;
+        mpp[{3,4}]=12;
+        mpp[{4,5}]=13;
+
+
+//for(auto *it:mpp)
+        for(auto it=mpp.begin(), ws!=mpp.end(),it++) cout<<ws<<"\n";
+        cout << "Key: " << it->first //*it.first
+             << " -> Value: (" << it->second.first 
+             << ", " << it->second.second << ")\n";
+    
+             auto it=mpp.find(3);
+             cout<<*(it).second;
+             //all the lower bound and the upper bound and the swapping erase,size , empty are the same;
+     //maps are shorted ascending order and the unique keys no duplicates 
+     //time complexitylog(n)
+
+//  Container	Sorted	Unique Keys
+//   map	     Yes	   Yes
+// unordered_map No        Yes
+// multimap      Yes       No
+    }
+
+
+void multimapexplain{
+    // multimap: key = int, value = string
+    multimap<int, string> mpp;
+
+    // Insert elements
+    mpp.insert({1, "A"});
+    mpp.insert({2, "B"});
+    mpp.insert({1, "C"}); // duplicate key allowed
+    mpp.insert({3, "D"});
+    mpp.insert({2, "E"}); // duplicate key allowed
+
+    // Iterate and print
+    for (auto it = mpp.begin(); it != mpp.end(); it++) {
+        cout << "Key: " << it->first << " -> Value: " << it->second << "\n";
+    }
+
+    
+}
+
+
+void unorederedexplain{
+     unordered_map<int, string> ump;
+
+    // Insert elements
+    ump[3] = "C";
+    ump[1] = "A";
+    ump[2] = "B";
+    ump[4] = "D";
+
+    // Iterate and print
+    for (auto it = ump.begin(); it != ump.end(); it++) {
+        cout << "Key: " << it->first << " -> Value: " << it->second << "\n";
+    }
+}
+
+//unoredered map time complexity is 0(1);
+//in worst case it will exhibits 0(n); once in a big moon; it appears 
+}
 int main() {
   
     explainvectors();
